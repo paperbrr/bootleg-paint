@@ -10,7 +10,9 @@ void renderNext(Workspace* workspace){
 
     //SDL_RenderCopy(renderer, workspace->oikawaTexture, NULL, &textureRect);
     for (int i=0; i<workspace->blocksArr.blockCount; i++){
-        SDL_RenderCopy(renderer, workspace->blocksArr.blocks[i]->blockTexture, NULL, &workspace->blocksArr.blocks[i]->sourceRect);
+        setRenderColor(workspace->blocksArr.blocks[i]->blockColor, workspace->renderer);
+        SDL_RenderFillRect(workspace->renderer, &workspace->blocksArr.blocks[i]->sourceRect);
+        //SDL_RenderCopy(renderer, workspace->blocksArr.blocks[i]->blockTexture, NULL, &workspace->blocksArr.blocks[i]->sourceRect);
     }
 
     SDL_RenderPresent(renderer);
