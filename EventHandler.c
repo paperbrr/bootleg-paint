@@ -13,7 +13,8 @@ void eventHandler(int* gameLoop, SDL_Event* event, Workspace* workspace){
         int xPos = event->motion.x; int yPos = event->motion.y;
         snapToGrid(&xPos, &yPos);
         if (event->button.button == SDL_BUTTON_LEFT) {
-            createBlock(workspace, xPos, yPos, 50, 50);
+            SDL_Color color = {100, 150, 200, 255};
+            createBlock(workspace, xPos, yPos, 50, 50, color);
         }
         else{
             deleteBlock(workspace, xPos, yPos);

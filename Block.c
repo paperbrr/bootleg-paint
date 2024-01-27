@@ -15,7 +15,7 @@ void blockArrayInit(BlockArray* blockArr, int initialSize){
     blockArr->blockArrSize = initialSize*sizeof(Block);
 }
 
-void createBlock(Workspace* workspace, int pos_x, int pos_y, int width, int height){
+void createBlock(Workspace* workspace, int pos_x, int pos_y, int width, int height, SDL_Color color){
 
     BlockArray* blockArr = &workspace->blocksArr;
 
@@ -29,11 +29,12 @@ void createBlock(Workspace* workspace, int pos_x, int pos_y, int width, int heig
     block->sourceRect.y = pos_y;
     block->sourceRect.h = height;
     block->sourceRect.w = width;
+    block->blockColor = color;
 
-    SDL_Surface* blockSurface;
+    /*SDL_Surface* blockSurface;
     blockSurface = IMG_Load("resources/blockTexture.png");
     block->blockTexture = SDL_CreateTextureFromSurface(workspace->renderer, blockSurface);
-    SDL_FreeSurface(blockSurface);
+    SDL_FreeSurface(blockSurface);*/
 
     blockArr->blocks = realloc(blockArr->blocks, blockArr->blockArrSize+sizeof(block));
     if (blockArr == NULL){
