@@ -2,9 +2,6 @@
 #include "Decs.h"
 #include <SDL.h>
 
-void colorToStruct(SDL_Color* color, Color* colorS) {
-    colorS->r = color->r;
-    colorS->g = color->g;
-    colorS->b = color->b;
-    colorS->a = color->a;
+void setRenderColor(SDL_Color* color, SDL_Renderer* renderer){
+    SDL_SetRenderDrawColor(renderer, color->r, color->g, color->b, color->a);
 }
