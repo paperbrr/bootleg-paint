@@ -4,6 +4,7 @@
 typedef struct{
     SDL_Rect sourceRect;
     SDL_Texture* blockTexture;
+	SDL_Color blockColor;
 } Block;
 
 typedef struct{
@@ -18,14 +19,16 @@ typedef struct{
 	SDL_Rect rect;
 } Workspace;
 
-
-void createBlock(Workspace* workspace, int pos_x, int pos_y, int width, int height);
+void createBlock(Workspace* workspace, int pos_x, int pos_y, int width, int height, SDL_Color color);
 void deleteBlock(Workspace* workspace, int mouseX, int mouseY);
 void blockArrayInit(BlockArray* blockArr, int initialSize);
 void freeBlockArray(BlockArray* blockArr);
 
 
 void eventHandler(int* gameLoop, SDL_Event* event, Workspace* workspace);
+
+
+void setRenderColor(SDL_Color color, SDL_Renderer* renderer);
 
 
 void renderNext(Workspace* workspace);
