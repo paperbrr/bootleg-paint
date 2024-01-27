@@ -5,7 +5,7 @@
 void renderNext(Workspace* workspace){
     SDL_Renderer* renderer = workspace->renderer;
 
-    SDL_SetRenderDrawColor(renderer, 100, 100, 100, 255);
+    SDL_SetRenderDrawColor(renderer, 150, 150, 150, 255);
     SDL_RenderClear(renderer);
 
     //SDL_RenderCopy(renderer, workspace->oikawaTexture, NULL, &textureRect);
