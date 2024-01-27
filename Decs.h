@@ -2,13 +2,6 @@
 #include <SDL.h>
 
 typedef struct{
-	int r;
-	int g;
-	int b;
-	int a;
-}Color;
-
-typedef struct{
     SDL_Rect sourceRect;
     SDL_Texture* blockTexture;
 } Block;
@@ -35,7 +28,7 @@ void freeBlockArray(BlockArray* blockArr);
 void eventHandler(int* gameLoop, SDL_Event* event, Workspace* workspace);
 
 
-void colorToStruct(SDL_Color* color, Color* colorS);
+void setRenderColor(SDL_Color* color, SDL_Renderer* renderer);
 
 
 void renderNext(Workspace* workspace);
