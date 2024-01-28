@@ -25,6 +25,7 @@ void eventHandler(int* gameLoop, SDL_Event* event, Workspace* workspace){
     else if (event->type == SDL_MOUSEBUTTONDOWN) {
         int xPos = event->motion.x; int yPos = event->motion.y;
         snapToGrid(&xPos, &yPos);
+        if (yPos<100) return;
         if (event->button.button == SDL_BUTTON_LEFT) {
             SDL_Color color = {100, 150, 200, 255};
             createBlock(workspace, xPos, yPos, 50, 50, renderColor);
