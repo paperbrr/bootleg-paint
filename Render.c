@@ -5,8 +5,12 @@
 void renderNext(Workspace* workspace){
     SDL_Renderer* renderer = workspace->renderer;
 
-    SDL_SetRenderDrawColor(renderer, 150, 150, 150, 255);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
+
+    renderFrames(&workspace->framesArr, workspace->renderer);
+    
+    renderButtons(&workspace->buttonsArr, renderer);
 
     //SDL_RenderCopy(renderer, workspace->oikawaTexture, NULL, &textureRect);
     for (int i=0; i<workspace->blocksArr.blockCount; i++){
