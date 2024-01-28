@@ -15,6 +15,17 @@ typedef struct{
 
 typedef struct{
     SDL_Rect sourceRect;
+    SDL_Color color;
+} Frame;
+
+typedef struct{
+    int length;
+    int arrDataSize;
+    Frame** frames;
+} FramesArray;
+
+typedef struct{
+    SDL_Rect sourceRect;
     SDL_Texture* blockTexture;
 	SDL_Color blockColor;
 } Block;
@@ -28,7 +39,9 @@ typedef struct{
 typedef struct{
 	SDL_Renderer* renderer;
 	BlockArray blocksArr;
-	SDL_Rect rect;
+	ButtonsArray buttonsArr;
+    FramesArray framesArr;
+	SDL_Rect buttonsPanel;
 } Workspace;
 
 void createBlock(Workspace* workspace, int pos_x, int pos_y, int width, int height, SDL_Color color);
@@ -50,3 +63,12 @@ void createButton(ButtonsArray* buttonArr, int x, int y, int h, int w, void (*ac
 void renderButtons(ButtonsArray* buttonArr, SDL_Renderer* renderer);
 void buttonClickHandler(SDL_Event* event ,ButtonsArray* buttonArr);
 void freeButtonArray(ButtonsArray* buttonArr);
+
+
+void frameArr_init(FramesArray* framesArr, int initialSize);
+void createFrame(FramesArray* framesArr, int x, int y, int w, int h, SDL_Color frameColor);
+void renderFrames(FramesArray* framesArr, SDL_Renderer* renderer);
+void freeFramesArray(FramesArray* framesArr);
+
+
+void createAllButtons(ButtonsArray* buttonsArr);
