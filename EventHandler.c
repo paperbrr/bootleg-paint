@@ -14,7 +14,7 @@ SDL_Color orange = {255, 165, 0, 200};
 SDL_Color peach = {255, 218, 185, 255};
 SDL_Color grey = {90, 90, 98, 255};
 
-SDL_Color renderColor;
+SDL_Color brushColor = {0, 0, 0, 255};
 
 void snapToGrid(int* mouseX, int* mouseY);
 
@@ -25,18 +25,18 @@ void eventHandler(int* gameLoop, SDL_Event* event, Workspace* workspace){
     else if (event->type == SDL_MOUSEBUTTONDOWN) {
         int xPos = event->motion.x; int yPos = event->motion.y;
         snapToGrid(&xPos, &yPos);
-        if (yPos<100) return;
+        if (yPos<50) return;
         if (event->button.button == SDL_BUTTON_LEFT) {
             SDL_Color color = {100, 150, 200, 255};
-            createBlock(workspace, xPos, yPos, 50, 50, renderColor);
+            createBlock(workspace, xPos, yPos, 50, 50, brushColor);
         }
         else{
             deleteBlock(workspace, xPos, yPos);
         }
     }
-    else if (event->type == SDL_KEYDOWN){
+    /*else if (event->type == SDL_KEYDOWN){
         int keycode = event->key.keysym.sym;
-        if (keycode==SDLK_1){renderColor=black;}
+        if (keycode==SDLK_1){brushColor=black;}
         else if (keycode==SDLK_2){renderColor=red;}
         else if (keycode==SDLK_3){renderColor=green;}
         else if (keycode==SDLK_4){renderColor=blue;}
@@ -45,7 +45,7 @@ void eventHandler(int* gameLoop, SDL_Event* event, Workspace* workspace){
         else if (keycode==SDLK_7){renderColor=purple;}
         else if (keycode==SDLK_8){renderColor=grey;}
         else if (keycode==SDLK_9){renderColor=peach;}
-    }
+    }*/
 }
 
 void snapToGrid(int* mouseX, int* mouseY){
