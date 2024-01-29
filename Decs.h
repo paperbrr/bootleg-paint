@@ -43,7 +43,6 @@ typedef struct{
 	BlockArray blocksArr;
 	ButtonsArray buttonsArr;
     FramesArray framesArr;
-	SDL_Rect buttonsPanel;
 } Workspace;
 
 void createBlock(Workspace* workspace, int pos_x, int pos_y, int width, int height, SDL_Color color);
