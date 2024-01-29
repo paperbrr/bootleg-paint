@@ -24,10 +24,10 @@ int main(int argv, char* args[]){
 	SDL_Color panelColor = {150,150,150,255};
 	SDL_Color canvasColor = {240,240,240,255};
 
-	createFrame(&workspace.framesArr, 0, 0, 800, 60, panelColor);
-	createFrame(&workspace.framesArr, 0, 60, 800, 700, canvasColor);
+	createFrame(&workspace.framesArr, 0, 0, 800, 50, panelColor);     //creates panel
+	createFrame(&workspace.framesArr, 0, 50, 800, 700, canvasColor);  //creates canvas
 
-	//createAllButtons(&workspace.buttonsArr);
+	createAllButtons(&workspace.buttonsArr);
 
 	int gameLoop = 1;
 	SDL_Event event;
