@@ -4,13 +4,13 @@
 #include <SDL_image.h>
 
 void frameArr_init(FramesArray* framesArr, int initialSize){
-    framesArr->frames = malloc(initialSize*sizeof(Frame));
+    framesArr->frames = malloc(initialSize*sizeof(Frame*));
     if (framesArr->frames==NULL){
         printf("ERROR");
         exit(1);
     }
     framesArr->length = 0;
-    framesArr->arrDataSize = initialSize*sizeof(Frame);
+    framesArr->arrDataSize = initialSize*sizeof(Frame*);
 }
 
 void createFrame(FramesArray* framesArr, int x, int y, int w, int h, SDL_Color frameColor){

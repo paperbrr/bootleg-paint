@@ -5,14 +5,14 @@
 
 void blockArrayInit(BlockArray* blockArr, int initialSize){
     //initialSize is just to create some placeholder data for now :D
-    blockArr->blocks = malloc(initialSize*sizeof(Block));
+    blockArr->blocks = malloc(initialSize*sizeof(Block*));
     if (blockArr==NULL){
         printf("ERROR");
         exit(1);
     }
 
     blockArr->blockCount = 0;
-    blockArr->blockArrSize = initialSize*sizeof(Block);
+    blockArr->blockArrSize = initialSize*sizeof(Block*);
 }
 
 void createBlock(Workspace* workspace, int pos_x, int pos_y, int width, int height, SDL_Color color){
