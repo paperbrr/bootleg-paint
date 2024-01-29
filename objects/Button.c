@@ -5,17 +5,21 @@
 #include "../Decs.h"
 
 void buttonsArr_init(ButtonsArray* buttonArr, int initialSize){
-    buttonArr->buttons = malloc(initialSize* sizeof(Button));
+    buttonArr->buttons = malloc(initialSize* sizeof(Button*));
     if (buttonArr->buttons==NULL){
         printf("ERROR");
         exit(1);
     }
-    buttonArr->arrDataSize = initialSize* sizeof(Button);
+    buttonArr->arrDataSize = initialSize* sizeof(Button*);
     buttonArr->length = 0;
 };
 
 void createButton(ButtonsArray* buttonArr, int x, int y, int h, int w, void (*action) (), SDL_Color color){
     Button* newButton = malloc(sizeof(Button));
+
+    if (newButton==NULL){
+        printf("ERROR FINDING MEMORY");
+    }
 
     newButton->sourceRect.x = x;
     newButton->sourceRect.y = y;
@@ -28,6 +32,7 @@ void createButton(ButtonsArray* buttonArr, int x, int y, int h, int w, void (*ac
     buttonArr->buttons = realloc(buttonArr->buttons, buttonArr->arrDataSize+sizeof(newButton));
     buttonArr->buttons[buttonArr->length] = newButton;
     buttonArr->length += 1;
+    buttonArr->arrDataSize += sizeof(newButton);
 }
 
 void buttonClickHandler(SDL_Event* event ,ButtonsArray* buttonArr){
@@ -36,7 +41,11 @@ void buttonClickHandler(SDL_Event* event ,ButtonsArray* buttonArr){
         int clickY = event->button.y;
             for (int i=0; i<buttonArr->length; i++){
                 Button* currentButton = buttonArr->buttons[i];
-                if (currentButton->sourceRect.x+currentButton->sourceRect.w>clickX && currentButton->sourceRect.y+currentButton->sourceRect.h>clickY){
+                int buttonLeftEdge = currentButton->sourceRect.x;
+                int buttonRightEdge = buttonLeftEdge + currentButton->sourceRect.w;
+                int buttonTop = currentButton->sourceRect.y;
+                int buttonDown = currentButton->sourceRect.h + buttonTop;
+                if (buttonLeftEdge<clickX && buttonRightEdge>clickX && buttonTop<clickY && buttonDown>clickY){
                     currentButton->actionFunc();
                 }            
             }
