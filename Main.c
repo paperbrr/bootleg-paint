@@ -11,7 +11,7 @@ int main(int argv, char* args[]){
 	//SDL_Surface* oikawaSurface;
 
 	SDL_Init(SDL_INIT_VIDEO);
-	window = SDL_CreateWindow("BOOTLEG PAINT", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, 0);
+	window = SDL_CreateWindow("BOOTLEG PAINT", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1200, 600, 0);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
 	Workspace workspace;
@@ -24,8 +24,8 @@ int main(int argv, char* args[]){
 	SDL_Color panelColor = {150,150,150,255};
 	SDL_Color canvasColor = {240,240,240,255};
 
-	createFrame(&workspace.framesArr, 0, 0, 800, 50, panelColor);     //creates panel
-	createFrame(&workspace.framesArr, 0, 50, 800, 700, canvasColor);  //creates canvas
+	createFrame(&workspace.framesArr, 0, 0, 1200, 50, panelColor);     //creates panel
+	createFrame(&workspace.framesArr, 0, 50, 1200, 700, canvasColor);  //creates canvas
 
 	createAllButtons(&workspace.buttonsArr);
 
