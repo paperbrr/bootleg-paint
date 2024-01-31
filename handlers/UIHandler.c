@@ -60,14 +60,14 @@ void brushToPurple(){
 
 
 void createAllButtons(ButtonsArray* buttonsArr){
-    createButton(buttonsArr, 10, 10, 30, 69, brushToPeach, colorsArr[peach]);
-    createButton(buttonsArr, 89, 10, 30, 69, brushToBlack, colorsArr[black]);
-    createButton(buttonsArr, 168, 10, 30, 69, brushToWhite, colorsArr[white]);
-    createButton(buttonsArr, 247, 10, 30, 69, brushToRed, colorsArr[red]);
-    createButton(buttonsArr, 326, 10, 30, 69, brushToGreen, colorsArr[green]);
-    createButton(buttonsArr, 405, 10, 30, 69, brushToBlue, colorsArr[blue]);
-    createButton(buttonsArr, 484, 10, 30, 69, brushToYellow, colorsArr[yellow]);
-    createButton(buttonsArr, 563, 10, 30, 69, brushToOrange, colorsArr[orange]);
-    createButton(buttonsArr, 642, 10, 30, 69, brushToGrey, colorsArr[grey]);
-    createButton(buttonsArr, 721, 10, 30, 69, brushToPurple, colorsArr[purple]);
+    createButton(buttonsArr, 10, 10, 30, 100, brushToPeach, colorsArr[peach]);
+    createButton(buttonsArr, 130, 10, 30, 100, brushToBlack, colorsArr[black]);
+    createButton(buttonsArr, 250, 10, 30, 100, brushToWhite, colorsArr[white]);
+    createButton(buttonsArr, 370, 10, 30, 100, brushToRed, colorsArr[red]);
+    createButton(buttonsArr, 490, 10, 30, 100, brushToGreen, colorsArr[green]);
+    createButton(buttonsArr, 610, 10, 30, 100, brushToBlue, colorsArr[blue]);
+    createButton(buttonsArr, 730, 10, 30, 100, brushToYellow, colorsArr[yellow]);
+    createButton(buttonsArr, 850, 10, 30, 100, brushToOrange, colorsArr[orange]);
+    createButton(buttonsArr, 970, 10, 30, 100, brushToGrey, colorsArr[grey]);
+    createButton(buttonsArr, 1090, 10, 30, 100, brushToPurple, colorsArr[purple]);
 }
