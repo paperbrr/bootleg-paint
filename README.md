@@ -1,4 +1,4 @@
-BOOTLEG PAINT
+<h1>BOOTLEG PAINT</h1>
 
 A highly pixel based painting tool based in C.
 
